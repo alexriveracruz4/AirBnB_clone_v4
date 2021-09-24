@@ -1,5 +1,14 @@
 // Listen for changes on each input checkbox tag.
 $( document ).ready(function () {
+  const url = 'http://0.0.0.0:5001/api/v1/status/';
+  $.get(url, function (response) {
+    if (response.status === 'OK') {
+      $('DIV#api_status').addClass('available');
+    } else {
+      $('DIV#api_status').removeClass('available');
+    }
+  });
+
   const amenityid = {};
   $("input[type='checkbox']").click(function () {
 // If the checkbox is checked, you must store the Amenity ID in a variable (dictionary or list).
