@@ -51,30 +51,30 @@ $(document).ready(function () {
 
   $('button').click(function () {
     $.ajax({
-	url: p,
-	type: 'POST',
-	headers: { 'Content-Type': 'application/json' },
-	data: JSON.stringify({'amenities': Object.keys(amenityid)}),
-	success:  function (response) {
-	    $('SECTION.places').empty();
-	    for (const r of response) {
-		const article = ['<article>',
-			'<div class="title_box">',
-		`<h2>${r.name}</h2>`,
-		`<div class="price_by_night">$${r.price_by_night}</div>`,
-		'</div>',
-		'<div class="information">',
-		`<div class="max_guest">${r.max_guest} Guest(s)</div>`,
-		`<div class="number_rooms">${r.number_rooms} Bedroom(s)</div>`,
-		`<div class="number_bathrooms">${r.number_bathrooms} Bathroom(s)</div>`,
-		'</div>',
-		'<div class="description">',
-		`${r.description}`,
-		'</div>',
-		'</article>'];
-		$('SECTION.places').append(article.join(''));
-	    }
-	}
+      url: p,
+      type: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      data: JSON.stringify({ amenities: Object.keys(amenityid) }),
+      success: function (response) {
+        $('SECTION.places').empty();
+        for (const r of response) {
+          const article = ['<article>',
+            '<div class="title_box">',
+            `<h2>${r.name}</h2>`,
+            `<div class="price_by_night">$${r.price_by_night}</div>`,
+            '</div>',
+            '<div class="information">',
+            `<div class="max_guest">${r.max_guest} Guest(s)</div>`,
+            `<div class="number_rooms">${r.number_rooms} Bedroom(s)</div>`,
+            `<div class="number_bathrooms">${r.number_bathrooms} Bathroom(s)</div>`,
+            '</div>',
+            '<div class="description">',
+            `${r.description}`,
+            '</div>',
+            '</article>'];
+          $('SECTION.places').append(article.join(''));
+        }
+      }
     });
   });
 });
