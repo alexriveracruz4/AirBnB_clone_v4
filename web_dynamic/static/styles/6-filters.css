@@ -42,7 +42,7 @@ button:hover {
     font-size: 14px;
     overflow: hidden;
     height: 20px;
-    width: 97%;
+    width: 86%;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
